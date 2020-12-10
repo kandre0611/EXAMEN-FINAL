@@ -1,0 +1,104 @@
+program fibonacci;
+uses crt;
+var
+n:integer;
+r:integer;
+s:integer;
+t:integer;
+archivo:text;
+escritura:string;
+procedure leer;
+begin
+clrscr;
+WriteLn ('Leyendo archivo fibonacci.txt');
+Textcolor(yellow);
+assign(archivo,'fibonacci.txt');
+   reset(archivo);
+  while not eof(archivo) do
+    begin
+    readln(archivo,escritura);
+    writeln(escritura);
+    end;
+    begin
+    close(archivo);
+    end;
+end;
+procedure fibonacci;
+begin
+  begin
+  R:=0;
+  S:=1;
+  end;
+   begin
+   repeat
+   begin
+   assign(archivo,'fibonacci.txt');
+   if (r=0) then
+      begin
+      rewrite(archivo);
+      end
+    else
+     begin
+     append(archivo)
+     end;
+     T:=r+s;
+     R:=t+s;
+     S:=r+t;
+   writeln(archivo,'~',t);
+   writeln(archivo,'~',r);
+   writeln(archivo,'~',s);
+   end;
+   until(n<=r) and (n<=s) and (n<=t);
+    begin
+    close(archivo);
+    end;
+   end;
+end;
+begin
+    clrscr;
+    Textbackground(blue);
+    WriteLn ('------------------------------------------------------------'); 
+    writeln('Ingrese el número para ver si esta en la lista de fibonaccio');
+    WriteLn ('------------------------------------------------------------');
+    readln(n);
+    Textbackground(black);
+    fibonacci;
+    Clrscr;
+    Textcolor(yellow);
+    WriteLn ('...  ...  ...  ...  ...  ...  ...  ... ');
+    Textcolor(white);
+    writeln('Guardado en archivo fibonacci.txt');
+    Textcolor(yellow);
+    WriteLn ('...  ...  ...  ...  ...  ...  ...  ... ');
+    WriteLn ('------------------------------------------------------------');
+    writeln('PRESIONE ENTER PARA VER');
+    WriteLn ('------------------------------------------------------------');
+    readln;
+    leer;
+    if (n<>r) and (n<>s) and (n<>t)then
+    begin
+   
+    Textbackground(white);
+    Textcolor(black);
+    WriteLn ('------------------------------------------------------------');
+    Textcolor(black);
+    writeln('El número que usted acaba de ingresar, no pertenece a la'); 
+    WriteLn ('serie de Fibonacci');
+    Textbackground(white);
+    WriteLn ('------------------------------------------------------------');
+     
+      end
+    else
+    begin
+    Textbackground(white);
+    Textcolor(black);
+    WriteLn ('------------------------------------------------------------');
+    Textcolor(black);
+    writeln('El número que usted ingresó, si se encuentra en la'); 
+    WriteLn ('serie de Fibonacci');
+    Textbackground(white);
+    WriteLn ('------------------------------------------------------------');
+   
+    end;
+    readln;
+end.
